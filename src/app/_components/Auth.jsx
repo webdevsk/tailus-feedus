@@ -5,7 +5,7 @@ import Link from "next/link"
 
 export function Auth() {
   return (
-    <div className="flex gap-4 border-yellow-200">
+    <div className="flex flex-col gap-4 border-yellow-200 max-md:w-full md:flex-row">
       <SignedOut>
         <Link
           href="/sign-up"
