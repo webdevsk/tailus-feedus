@@ -1,8 +1,10 @@
-New features
+# New features
+
 prettier
 ssr
+Authentication using Clerk
 
-Bug fixes
+# Bug fixes
 
 # Recipe App
 

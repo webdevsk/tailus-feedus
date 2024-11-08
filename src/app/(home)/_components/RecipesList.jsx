@@ -2,9 +2,9 @@
 import HttpKit from "@/common/helpers/HttpKit"
 import { useQuery } from "@tanstack/react-query"
 import React, { useEffect, useState } from "react"
-import RecipeCard from "./RecipeCard"
-import Modal from "../Modal"
-import SingleRecipe from "./SingleRecipe"
+import RecipeCard from "../../../components/Recipes/RecipeCard"
+import Modal from "../../../components/Modal"
+import SingleRecipe from "../../../components/Recipes/SingleRecipe"
 
 const RecipesList = () => {
   const [openDetails, setOpenDetails] = useState(false)
