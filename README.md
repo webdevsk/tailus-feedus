@@ -1,10 +1,13 @@
 # New features
 
+categories
 prettier
 ssr
 Authentication using Clerk
 
 # Bug fixes
+
+Api rate limit
 
 # Recipe App
 

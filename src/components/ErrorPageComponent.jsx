@@ -1,30 +1,27 @@
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 import { useEffect } from "react"
 
 export function ErrorPageComponent({ error, reset }) {
-  const pathname = usePathname()
-
   useEffect(() => {
     console.error(error)
   }, [error])
 
   return (
-    <div className="relative h-dvh w-full bg-yellow-50">
-      <div className="absolute inset-0 grid grid-cols-1 place-content-center p-4 xl:grid-cols-2">
-        <div className="mb-48 xl:col-[2/3]">
-          <h1 className="text-red">500</h1>
-          <h2 className="">Oops, something went wrong</h2>
-          {pathname !== "/" && (
-            <Link
-              href={"/"}
-              className="rounded-full bg-yellow-300 px-6 py-4 text-yellow-900 transition-colors hover:bg-yellow-100"
-            >
-              Go To Homepage
-            </Link>
-          )}
-        </div>
+    <section className="relative grid min-h-dvh w-full place-items-center bg-yellow-50 pt-12">
+      <div className="max-w-lg py-4">
+        <h1 className="mb-2 text-6xl font-bold text-red-500 lg:text-8xl">
+          500
+        </h1>
+        <h2 className="text-2xl font-semibold text-red-800 lg:text-4xl">
+          Oops, something went wrong
+        </h2>
+        <button
+          onClick={reset}
+          className="mt-12 block w-full rounded-full bg-yellow-300 px-6 py-4 text-center text-base font-semibold text-yellow-900 transition-colors hover:bg-yellow-100 lg:mt-24"
+        >
+          Go Back Home
+        </button>
       </div>
-    </div>
+    </section>
   )
 }
