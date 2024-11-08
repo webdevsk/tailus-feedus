@@ -1,3 +1,9 @@
+New features
+prettier
+ssr
+
+Bug fixes
+
 # Recipe App
 
 # Description:

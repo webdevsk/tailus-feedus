@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["www.themealdb.com"],
+    remotePatterns: [{
+      // protocol: "http",
+      hostname: "www.themealdb.com",
+    }]
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig
