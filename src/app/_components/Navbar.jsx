@@ -1,9 +1,9 @@
 import Link from "next/link"
-import React from "react"
+import { Auth } from "./Auth"
 
 const Navbar = () => {
   return (
-    <nav className="fixed z-50 w-full bg-white md:absolute md:bg-transparent">
+    <nav className="fixed left-0 top-0 z-50 w-full bg-white md:absolute md:bg-transparent">
       <div className="container">
         <div className="flex flex-wrap items-center justify-between gap-6 py-3 md:gap-0 md:py-4">
           <input
@@ -69,27 +69,7 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
-
-            <div className="w-full min-w-max space-y-2 border-yellow-200 sm:w-max lg:space-y-0 lg:border-l">
-              <button
-                type="button"
-                title="Start buying"
-                className="w-full rounded-full px-6 py-3 text-center transition focus:bg-yellow-100 active:bg-yellow-200 sm:w-max"
-              >
-                <span className="block text-sm font-semibold text-yellow-800">
-                  Sign up
-                </span>
-              </button>
-              <button
-                type="button"
-                title="Start buying"
-                className="w-full rounded-full bg-yellow-300 px-6 py-3 text-center transition hover:bg-yellow-100 focus:bg-yellow-300 active:bg-yellow-400 sm:w-max"
-              >
-                <span className="block text-sm font-semibold text-yellow-900">
-                  Login
-                </span>
-              </button>
-            </div>
+            <Auth />
           </div>
         </div>
       </div>
