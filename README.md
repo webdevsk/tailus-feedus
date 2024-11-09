@@ -4,6 +4,7 @@ categories
 prettier
 ssr
 Authentication using Clerk
+Next Modal Product
 
 # Bug fixes
 
