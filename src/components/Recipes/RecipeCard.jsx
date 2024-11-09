@@ -1,10 +1,13 @@
 import Image from "next/image"
+import Link from "next/link"
 import React from "react"
 
 const RecipeCard = ({ recipe, handleDetailsOpen }) => {
   return (
-    <div
-      onClick={() => handleDetailsOpen(recipe?.idMeal)}
+    <Link
+      href={`/meal/${recipe.idMeal}`}
+      scroll={false}
+      // onClick={() => handleDetailsOpen(recipe?.idMeal)}
       className="group space-y-6 rounded-3xl border border-gray-100 bg-white px-4 py-4 text-center shadow shadow-gray-600/10 transition duration-200 hover:cursor-pointer hover:shadow-xl"
     >
       <Image
@@ -26,7 +29,7 @@ const RecipeCard = ({ recipe, handleDetailsOpen }) => {
       <div className="invisible relative mx-auto flex items-center justify-center group-hover:visible">
         <button className="text-primary">Click to see details</button>
       </div>
-    </div>
+    </Link>
   )
 }
 
