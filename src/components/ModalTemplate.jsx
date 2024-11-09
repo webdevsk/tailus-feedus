@@ -9,11 +9,7 @@ export function ModalTemplate({ children, title }) {
           <NextModalClose />
         </div>
       </div>
-      <div
-        aria-hidden
-        tabIndex={-1}
-        className="border-gray-4 -mx-5 mb-3 border-[.5px]"
-      ></div>
+      <div aria-hidden tabIndex={-1} className="-mx-5 mb-3"></div>
       {children}
     </NextModal>
   )
