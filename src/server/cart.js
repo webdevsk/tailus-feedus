@@ -1,6 +1,6 @@
 'use server'
 
-import { db } from '@/lib/db'
+import { db } from '@/lib/drizzle'
 import { cartItems, users } from '@/db/schema'
 import { eq, and } from 'drizzle-orm'
 import { auth } from '@clerk/nextjs'

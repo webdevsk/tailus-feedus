@@ -17,7 +17,7 @@ export function SingleMeal({ res }) {
     )
   }
   const meal = res.data.meals[0]
-  console.log(meal)
+  // console.log(meal)
 
   // Extract ingredients and measurements, filtering out empty ones
   const ingredients = Array.from({ length: 20 }, (_, i) => ({

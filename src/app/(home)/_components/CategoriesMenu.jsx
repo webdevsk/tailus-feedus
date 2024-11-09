@@ -1,9 +1,7 @@
-import { SectionHeading } from "@/components/SectionHeading"
-import Image from "next/image"
 import Link from "next/link"
 
 export function CategoriesMenu({ res }) {
-  console.log(res)
+  // console.log(res)
   return (
     <section>
       <div className="container space-y-4 lg:space-y-16">
