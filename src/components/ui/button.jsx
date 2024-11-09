@@ -18,12 +18,12 @@ const buttonVariants = cva(
         secondary:
           "bg-zinc-100 text-zinc-900 shadow-sm hover:bg-zinc-100/80 dark:bg-zinc-800 dark:text-zinc-50 dark:hover:bg-zinc-800/80",
         ghost:
-          "hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-800 dark:hover:text-zinc-50",
-        link: "text-zinc-900 underline-offset-4 hover:underline dark:text-zinc-50",
+          "text-yellow-800 transition focus:bg-yellow-100 active:bg-yellow-200 hover:bg-yellow-100  dark:hover:bg-zinc-800 dark:hover:text-zinc-50",
+        link: "hover:text-yellow-700 dark:text-zinc-50",
       },
       size: {
-        default: "h-9 px-4 py-2 text-sm font-medium",
-        sm: "h-8 rounded-full px-3 text-xs text-sm font-medium",
+        default: "h-11 px-6 text-sm font-semibold",
+        sm: "h-8 rounded-full px-4 text-xs text-sm font-medium",
         lg: "h-12 rounded-full px-8 text-xl font-semibold",
         icon: "h-9 w-9 text-sm font-medium",
       },

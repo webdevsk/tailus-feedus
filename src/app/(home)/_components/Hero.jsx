@@ -6,7 +6,7 @@ const Hero = () => {
     <div>
       {/* BANNER */}
       <div className="relative z-10 bg-yellow-50">
-        <div className="container pt-32 lg:pt-[4.8rem]">
+        <div className="pt-nav-height container">
           <div className="flex flex-wrap items-center px-2 md:px-0">
             <div className="relative lg:w-6/12 lg:py-24 xl:py-32">
               <h1 className="text-4xl font-bold text-yellow-900 md:text-5xl lg:w-10/12">

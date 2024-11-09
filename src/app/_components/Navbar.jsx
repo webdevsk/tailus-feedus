@@ -1,11 +1,12 @@
 import Link from "next/link"
 import { Auth } from "./Auth"
+import { Button } from "@/components/ui/button"
 
 const Navbar = () => {
   return (
-    <nav className="fixed left-0 top-0 z-50 w-full bg-white md:absolute md:bg-transparent">
+    <nav className="h-nav-height fixed left-0 top-0 z-50 flex w-full bg-white md:absolute md:bg-transparent">
       <div className="container">
-        <div className="flex flex-wrap items-center justify-between gap-6 py-3 md:gap-0 md:py-4">
+        <div className="flex flex-wrap items-center justify-between py-3 md:py-4">
           <input
             type="checkbox"
             name="toggle_nav"
@@ -48,24 +49,21 @@ const Navbar = () => {
             htmlFor="toggle_nav"
             className="fixed left-0 top-0 z-10 hidden h-full w-full bg-yellow-200 bg-opacity-30 backdrop-blur backdrop-filter peer-checked:block"
           ></label>
-          <div className="z-30 hidden w-full flex-col items-center justify-end gap-y-6 rounded-xl bg-white p-6 peer-checked:flex md:flex-nowrap lg:flex lg:w-7/12 lg:flex-row lg:gap-y-0 lg:bg-transparent lg:p-0">
+          <div
+            style={{ marginTop: "calc(var(--navbar-height) / 2 - 32px / 2)" }}
+            className="z-30 hidden w-full flex-col items-center justify-end gap-y-6 rounded-xl bg-white p-6 peer-checked:flex md:flex-nowrap lg:!mt-0 lg:flex lg:w-7/12 lg:flex-row lg:gap-y-0 lg:bg-transparent lg:p-0"
+          >
             <div className="w-full text-gray-600 lg:pr-4">
-              <ul className="flex w-full flex-col gap-y-6 text-sm font-medium tracking-wide lg:flex-row lg:gap-y-0">
+              <ul className="flex w-full flex-col items-center gap-y-6 text-sm font-medium tracking-wide lg:flex-row lg:gap-y-0">
                 <li>
-                  <Link
-                    href="/all-recipes"
-                    className="block transition hover:text-yellow-700 md:px-4"
-                  >
-                    <span>All recipes</span>
-                  </Link>
+                  <Button variant="link" asChild>
+                    <Link href="/all-recipes">All recipes</Link>
+                  </Button>
                 </li>
                 <li>
-                  <Link
-                    href="/cart"
-                    className="block transition hover:text-yellow-700 md:px-4"
-                  >
-                    <span>Cart</span>
-                  </Link>
+                  <Button variant="link" asChild>
+                    <Link href="/cart">Cart</Link>
+                  </Button>
                 </li>
               </ul>
             </div>
