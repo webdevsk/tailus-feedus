@@ -6,6 +6,7 @@ import { ClerkProvider } from "@clerk/nextjs"
 import localFont from "next/font/local"
 import { Toaster } from "@/components/ui/sonner"
 import { NuqsAdapter } from "nuqs/adapters/next/app"
+import Footer from "@/components/Footer"
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -36,6 +37,7 @@ export default function RootLayout({ children, mealchild }) {
               <Navbar />
               {children}
               {mealchild}
+              <Footer />
               <Toaster />
             </TanstackProvider>
           </NuqsAdapter>
