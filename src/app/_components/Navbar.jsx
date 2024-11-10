@@ -17,7 +17,7 @@ const Navbar = () => {
           initialPosition={0.08}
         />
       </div>
-      <nav className="h-nav-height fixed left-0 top-0 z-50 flex w-full bg-white md:absolute md:bg-transparent">
+      <nav className="fixed left-0 top-0 z-50 flex h-nav-height w-full bg-white md:absolute md:bg-transparent">
         <div className="container">
           <div className="flex flex-wrap items-center justify-between py-3 md:py-4">
             <input
@@ -70,7 +70,7 @@ const Navbar = () => {
                 <ul className="flex w-full flex-col items-center gap-y-6 text-sm font-medium tracking-wide lg:flex-row lg:gap-y-0">
                   <li>
                     <Button variant="link" asChild>
-                      <Link href="/all-recipes">All recipes</Link>
+                      <Link href="/meals">All meals</Link>
                     </Button>
                   </li>
                   <li>

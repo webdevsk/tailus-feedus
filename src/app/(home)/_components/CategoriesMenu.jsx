@@ -12,7 +12,7 @@ export function CategoriesMenu({ res }) {
           </h1>
         ) : (
           <div className="grid grid-cols-[repeat(auto-fit,_minmax(min(190px,_100%),_1fr))] gap-4 lg:gap-6">
-            {res.data.categories.map(cat => (
+            {res.data?.map(cat => (
               <Link
                 key={cat.strCategory}
                 href={`/recipes?c=${cat.strCategory}`}

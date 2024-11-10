@@ -4,7 +4,7 @@ export async function getAllCategories() {
     try {
         const res = await fetch(base_url + "/categories.php", { cache: "force-cache" })
         const result = await res.json()
-        return { status: "success", data: result }
+        return { status: "success", data: result.categories ?? [] }
     } catch (error) {
         console.error(error)
         return { status: "failed", error: "Failed to connect to the server" }
