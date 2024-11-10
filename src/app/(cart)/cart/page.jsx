@@ -108,7 +108,10 @@ export default function CartPage() {
                 </h1>
               ) : (
                 res.data?.map(item => (
-                  <div key={item.id} className="flex items-center space-x-4">
+                  <div
+                    key={item.id}
+                    className="flex items-center space-x-2 lg:space-x-4"
+                  >
                     <Image
                       width={96}
                       height={96}
@@ -122,7 +125,7 @@ export default function CartPage() {
                         BDT{item.floatPrice}
                       </p>
                     </div>
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center space-x-1 lg:space-x-2">
                       <Button
                         variant="outline"
                         size="icon"

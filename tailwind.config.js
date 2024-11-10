@@ -1,4 +1,4 @@
-const plugin = require('tailwindcss')
+import defaultTheme from "tailwindcss/defaultTheme"
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -10,6 +10,10 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			fontFamily: {
+				'sans': ['var(--font-geist-sans)', ...defaultTheme.fontFamily.sans],
+				'mono': ['var(--font-geist-mono)', ...defaultTheme.fontFamily.mono],
+			},
 			container: {
 				center: 'true',
 				padding: {

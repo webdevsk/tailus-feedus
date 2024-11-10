@@ -1,5 +1,5 @@
 "use client"
-import RecipeCard from "@/components/Recipes/RecipeCard"
+import RecipeCard from "@/components/RecipeCard"
 import { SectionHeading } from "@/components/SectionHeading"
 
 const RecipesList = ({ res }) => {

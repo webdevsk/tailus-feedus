@@ -20,7 +20,7 @@ export default function Hero() {
       <div className="container relative z-10">
         <div className="grid min-h-[calc(100vh-4rem)] items-center gap-8 py-8 md:grid-cols-2 md:py-12 lg:py-16">
           {/* Content Column */}
-          <div className="flex flex-col justify-center space-y-8 text-center md:text-left">
+          <div className="flex flex-col justify-center space-y-8 text-center max-md:mt-24 md:text-left">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tighter text-yellow-950 sm:text-5xl xl:text-6xl/none">
                 Your Favourite Dishes,{" "}
@@ -37,11 +37,7 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col gap-4 sm:flex-row sm:justify-center md:justify-start">
-              <Button
-                asChild
-                size="lg"
-                className="bg-yellow-600 text-yellow-50 hover:bg-yellow-700"
-              >
+              <Button asChild variant="secondary" size="lg">
                 <Link href="/meals">
                   Order Now
                   <ArrowRight className="ml-2 h-4 w-4" />

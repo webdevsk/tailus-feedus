@@ -28,9 +28,9 @@ export function Auth() {
         </Button>
       </SignedOut>
       <SignedIn>
-        <Button variant="icon" asChild>
-          <UserButton showName appearance={{}} />
-        </Button>
+        <div className="flex justify-center">
+          <UserButton showName />
+        </div>
       </SignedIn>
     </div>
   )

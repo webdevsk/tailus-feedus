@@ -1,4 +1,4 @@
-import RecipeCard from "@/components/Recipes/RecipeCard"
+import RecipeCard from "@/components/RecipeCard"
 import { getMealsByPath } from "@/server/meal"
 
 export default async function ProductsListPage({ searchParams }) {
