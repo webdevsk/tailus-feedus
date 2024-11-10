@@ -27,7 +27,7 @@ export function SingleMeal({ res }) {
   })).filter(item => item.ingredient && item.ingredient.trim() !== "")
 
   // Split instructions into steps
-  const instructions = meal.strInstructions
+  const instructions = ("strInstructions" in meal ? meal.strInstructions : "")
     .split(/\r\n|\n/)
     .filter(step => step.trim() !== "")
 
@@ -44,7 +44,7 @@ export function SingleMeal({ res }) {
             <Badge variant="secondary" className="text-sm">
               {meal.strArea}
             </Badge>
-            {("strTags" in meal ? meal.strTags.split(",") : []).map(tag => (
+            {("strTags" in meal ? meal.strTags.split(",") : "").map(tag => (
               <Badge key={tag} variant="outline" className="text-sm">
                 {tag.trim()}
               </Badge>
