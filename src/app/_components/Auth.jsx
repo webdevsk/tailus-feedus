@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { SignedOut } from "@clerk/nextjs"
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 import Link from "next/link"
 
 export function Auth() {
@@ -27,6 +27,11 @@ export function Auth() {
           </Link>
         </Button>
       </SignedOut>
+      <SignedIn>
+        <Button variant="icon" asChild>
+          <UserButton showName appearance={{}} />
+        </Button>
+      </SignedIn>
     </div>
   )
 }

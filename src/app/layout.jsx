@@ -4,6 +4,7 @@ import Navbar from "./_components/Navbar"
 import TanstackProvider from "@/providers/TanstackProvider"
 import { ClerkProvider } from "@clerk/nextjs"
 import localFont from "next/font/local"
+import { Toaster } from "@/components/ui/sonner"
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -24,7 +25,7 @@ export const metadata = {
 
 export default function RootLayout({ children, mealchild }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider dynamic>
       <html lang="en">
         <body
           className={`${geistSans.variable} ${geistMono.variable} bg-white text-black antialiased`}
@@ -33,6 +34,7 @@ export default function RootLayout({ children, mealchild }) {
             <Navbar />
             {children}
             {mealchild}
+            <Toaster />
           </TanstackProvider>
         </body>
       </html>

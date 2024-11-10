@@ -3,7 +3,8 @@
 import { db } from '@/lib/drizzle'
 import { cartItems, users } from '@/db/schema'
 import { eq, and } from 'drizzle-orm'
-import { auth } from '@clerk/nextjs'
+import { auth } from '@clerk/nextjs/server'
+// import { auth } from '@clerk/nextjs'
 
 
 export async function addToCart({ productId, productName, productThumb, quantity = 1 }) {
@@ -12,18 +13,21 @@ export async function addToCart({ productId, productName, productThumb, quantity
         if (!clerkId) throw new Error('Unauthorized')
 
         // Get internal user id
-        const user = await db.query.users.findFirst({
-            where: eq(users.clerkId, clerkId),
-        })
+        const [user] = await db
+            .select()
+            .from(users)
+            .where(eq(users.clerkId, clerkId))
+            .limit(1) // Limits to one result
+
         if (!user) throw new Error('User not found')
 
         // Check if item already exists in cart
-        const existingItem = await db.query.cartItems.findFirst({
-            where: and(
+        const [existingItem] = await db.select().from(cartItems).where(
+            and(
                 eq(cartItems.userId, user.id),
                 eq(cartItems.productId, productId)
-            ),
-        })
+            )
+        ).limit(1)
 
         if (existingItem) {
             // Update quantity if item exists
@@ -42,10 +46,10 @@ export async function addToCart({ productId, productName, productThumb, quantity
             })
         }
 
-        return { success: true }
+        return { status: "success" }
     } catch (error) {
         console.error('Error adding to cart:', error)
-        throw new Error('Failed to add item to cart')
+        return { status: "error", message: 'Failed to add item to cart' }
     }
 }
 
@@ -54,19 +58,24 @@ export async function getCart() {
         const { userId: clerkId } = auth()
         if (!clerkId) throw new Error('Unauthorized')
 
-        const user = await db.query.users.findFirst({
-            where: eq(users.clerkId, clerkId),
-        })
+        const [user] = await db
+            .select()
+            .from(users)
+            .where(eq(users.clerkId, clerkId))
+            .limit(1) // Limits to one result
+
         if (!user) throw new Error('User not found')
 
-        const items = await db.query.cartItems.findMany({
-            where: eq(cartItems.userId, user.id),
-        })
+        // Fetch all cart items for the found user
+        const items = await db
+            .select()
+            .from(cartItems)
+            .where(eq(cartItems.userId, user.id))
 
-        return items
+        return { status: "success", data: items }
     } catch (error) {
         console.error('Error fetching cart:', error)
-        throw new Error('Failed to fetch cart')
+        return { status: "error", message: 'Failed to fetch cart' }
     }
 }
 
@@ -79,9 +88,9 @@ export async function removeFromCart(itemId) {
             .delete(cartItems)
             .where(eq(cartItems.id, itemId))
 
-        return { success: true }
+        return { status: "success" }
     } catch (error) {
         console.error('Error removing from cart:', error)
-        throw new Error('Failed to remove item from cart')
+        return { status: "error", message: 'Failed to remove item from cart' }
     }
 }

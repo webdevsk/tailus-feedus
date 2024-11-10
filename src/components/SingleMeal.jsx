@@ -6,6 +6,7 @@ import { Youtube, Globe } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "./ui/button"
+import { AddToCart } from "./AddToCart"
 
 export function SingleMeal({ res }) {
   if (res.status === "failed" || !res?.data?.meals?.at(0)) {
@@ -75,9 +76,7 @@ export function SingleMeal({ res }) {
               </Link>
             )}
           </div>
-          <Button className="w-full" size="lg">
-            Add to Cart
-          </Button>
+          <AddToCart {...meal} />
         </div>
 
         {/* Image */}

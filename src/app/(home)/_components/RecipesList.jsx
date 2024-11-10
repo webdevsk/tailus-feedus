@@ -1,10 +1,5 @@
 "use client"
-import HttpKit from "@/common/helpers/HttpKit"
-import { useQuery } from "@tanstack/react-query"
-import React, { useEffect, useState } from "react"
 import RecipeCard from "../../../components/Recipes/RecipeCard"
-import Modal from "../../../components/Modal"
-import SingleRecipe from "../../../components/Recipes/SingleRecipe"
 import { SectionHeading } from "@/components/SectionHeading"
 
 const RecipesList = ({ res }) => {
