@@ -27,7 +27,20 @@ export const metadata = {
 
 export default function RootLayout({ children, mealchild }) {
   return (
-    <ClerkProvider dynamic>
+    <ClerkProvider
+      dynamic
+      appearance={{
+        layout: {
+          shimmer: false,
+          unsafe_disableDevelopmentModeWarnings: true,
+        },
+        variables: {
+          borderRadius: ".5rem",
+          colorNeutral: "#422006",
+          colorPrimary: "#854d0e",
+        },
+      }}
+    >
       <html lang="en">
         <body
           className={`${geistSans.variable} ${geistMono.variable} bg-white text-black antialiased`}

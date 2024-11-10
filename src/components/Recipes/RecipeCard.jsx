@@ -3,7 +3,7 @@ import Link from "next/link"
 import React from "react"
 
 const RecipeCard = ({ meal }) => {
-  console.log(meal)
+  // console.log(meal)
   return (
     <Link
       href={`/meal/${meal.idMeal}`}
