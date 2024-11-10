@@ -17,7 +17,7 @@ export function SingleMeal({ res }) {
       </h1>
     )
   }
-  const meal = res.data.meals[0]
+  const meal = res.data?.meals?.at(0)
   // console.log(meal)
 
   // Extract ingredients and measurements, filtering out empty ones
@@ -44,7 +44,7 @@ export function SingleMeal({ res }) {
             <Badge variant="secondary" className="text-sm">
               {meal.strArea}
             </Badge>
-            {meal.strTags?.split(",").map(tag => (
+            {("strTags" in meal ? meal.strTags.split(",") : []).map(tag => (
               <Badge key={tag} variant="outline" className="text-sm">
                 {tag.trim()}
               </Badge>
