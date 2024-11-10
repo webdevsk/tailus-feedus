@@ -9,6 +9,7 @@ import { Button } from "./ui/button"
 import { AddToCart } from "./AddToCart"
 
 export function SingleMeal({ res }) {
+  console.log("Im in")
   if (res.status === "failed" || !res?.data?.meals?.at(0)) {
     console.error(res.error ?? "Invalid meal api structure.")
     return (
@@ -19,7 +20,6 @@ export function SingleMeal({ res }) {
   }
   const meal = res.data?.meals?.at(0)
   // console.log(meal)
-
   // Extract ingredients and measurements, filtering out empty ones
   const ingredients = Array.from({ length: 20 }, (_, i) => ({
     ingredient: meal[`strIngredient${i + 1}`],
@@ -27,10 +27,9 @@ export function SingleMeal({ res }) {
   })).filter(item => item.ingredient && item.ingredient.trim() !== "")
 
   // Split instructions into steps
-  const instructions = ("strInstructions" in meal ? meal.strInstructions : "")
-    .split(/\r\n|\n/)
-    .filter(step => step.trim() !== "")
-
+  const instructions = (meal.strInstructions?.split(/\r\n|\n/) ?? []).filter(
+    step => step.trim() !== ""
+  )
   return (
     <div className="">
       {/* Header Section */}
@@ -44,7 +43,7 @@ export function SingleMeal({ res }) {
             <Badge variant="secondary" className="text-sm">
               {meal.strArea}
             </Badge>
-            {("strTags" in meal ? meal.strTags.split(",") : "").map(tag => (
+            {(meal.strTags?.split(",") ?? []).map(tag => (
               <Badge key={tag} variant="outline" className="text-sm">
                 {tag.trim()}
               </Badge>
