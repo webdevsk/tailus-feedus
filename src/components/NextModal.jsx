@@ -67,7 +67,7 @@ export function NextModal({ children, className, ...rest }) {
 
                 <DialogPanel
                   className={cn(
-                    "border-red/30 mx-auto w-full max-w-3xl rounded border bg-white p-5",
+                    "border-red/30 mx-auto w-full min-w-[70vw] max-w-3xl rounded-2xl border bg-white p-5",
                     className
                   )}
                 >
@@ -94,7 +94,7 @@ export function NextModalClose({ className }) {
     <button
       onClick={() => modalContext.handleState(false)}
       className={cn(
-        "hover:bg-red block w-max rounded-sm bg-transparent text-3xl transition-colors hover:text-white",
+        "block w-max rounded-sm bg-transparent text-3xl text-yellow-900 transition-colors hover:text-yellow-900/80",
         className
       )}
     >

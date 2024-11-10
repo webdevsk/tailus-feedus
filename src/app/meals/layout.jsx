@@ -5,11 +5,9 @@ export default function MealsPageLayout({ children }) {
   return (
     <section className="pt-nav-height">
       <div className="container relative py-4 lg:py-8">
-        <div className="flex flex-col gap-8 lg:flex-row">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[320px,_minmax(0,_1fr)]">
           {/* Sidebar with filters */}
-          <Suspense>
-            <FiltersComponent />
-          </Suspense>
+          <FiltersComponent />
           {/* Product grid */}
           {children}
         </div>

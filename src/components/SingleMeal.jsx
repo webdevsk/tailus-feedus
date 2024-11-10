@@ -32,7 +32,7 @@ export function SingleMeal({ res }) {
     .filter(step => step.trim() !== "")
 
   return (
-    <div className="py-8 lg:py-16">
+    <div className="">
       {/* Header Section */}
       <div className="mb-8 grid items-center gap-8 md:grid-cols-2">
         <div className="space-y-4">

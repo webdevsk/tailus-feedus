@@ -144,7 +144,7 @@ export default function CartPage() {
                       variant="ghost"
                       size="icon"
                       onClick={() => cartDelete(item.id)}
-                      className="text-red-500 hover:text-red-700"
+                      className="text-yellow-900 hover:text-yellow-900/80"
                     >
                       <Trash2 className="h-4 w-4" />
                     </Button>

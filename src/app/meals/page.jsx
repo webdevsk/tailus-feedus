@@ -16,8 +16,8 @@ export default async function ProductsListPage({ searchParams }) {
   )
   if (res.status === "failed") console.error(res.error)
   return (
-    <div className="lg:w-4/5">
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+    <div>
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-2 2xl:grid-cols-3">
         {res.data?.meals?.map(item => (
           <RecipeCard key={item.idMeal} meal={item} />
         ))}

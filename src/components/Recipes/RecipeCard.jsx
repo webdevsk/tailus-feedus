@@ -18,14 +18,16 @@ const RecipeCard = ({ meal }) => {
         width={443}
         height={443}
       />
-      <h3 className="text-2xl font-semibold text-gray-800">{meal?.strMeal}</h3>
+      <h3 className="text-2xl font-semibold text-yellow-800">
+        {meal?.strMeal}
+      </h3>
       <p>
         Obcaecati, quam? Eligendi, nulla numquam natus laborum porro at cum,
         consectetur ullam tempora ipsa iste officia sed officiis! Incidunt ea
         animi officiis.
       </p>
-      <div className="invisible relative mx-auto flex items-center justify-center group-hover:visible">
-        <button className="text-primary">Click to see details</button>
+      <div className="invisible relative mx-auto flex items-center justify-center text-sm group-hover:visible">
+        <button className="text-yellow-700">Click to see details</button>
       </div>
     </Link>
   )

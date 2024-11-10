@@ -15,7 +15,7 @@ export function CategoriesMenu({ res }) {
             {res.data?.map(cat => (
               <Link
                 key={cat.strCategory}
-                href={`/recipes?c=${cat.strCategory}`}
+                href={`/meals?category=${cat.strCategory}`}
                 style={{ backgroundImage: `url("${cat.strCategoryThumb}")` }}
                 className="group relative cursor-pointer overflow-hidden rounded-lg border border-yellow-900 bg-yellow-50 bg-cover bg-center bg-no-repeat px-4 py-4 text-center bg-blend-multiply shadow shadow-gray-600/10 transition duration-200 hover:shadow-xl max-lg:h-12 lg:aspect-square lg:rounded-3xl lg:border-yellow-100 lg:bg-contain"
               >

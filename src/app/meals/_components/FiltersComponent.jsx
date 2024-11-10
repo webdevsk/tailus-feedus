@@ -47,9 +47,9 @@ export function FiltersComponent() {
   }
 
   return (
-    <div className="lg:w-1/5">
-      <div className="space-y-6">
-        <SectionHeading className="text-start lg:text-2xl">
+    <div className="relative">
+      <div className="left-0 top-nav-height space-y-6 lg:sticky">
+        <SectionHeading className="lg:text-start lg:text-2xl">
           All Meals
         </SectionHeading>
 
@@ -109,7 +109,7 @@ export function FiltersComponent() {
         <div>
           <Button
             onClick={initiateSearch}
-            className="w-full"
+            className="mt-4 w-full"
             variant="secondary"
           >
             Search
