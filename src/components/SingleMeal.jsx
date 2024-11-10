@@ -36,7 +36,7 @@ export function SingleMeal({ res }) {
       {/* Header Section */}
       <div className="mb-8 grid items-center gap-8 md:grid-cols-2">
         <div className="space-y-4">
-          <h1 className="text-4xl font-bold">{meal.strMeal}</h1>
+          <h1 className="text-4xl font-bold text-yellow-950">{meal.strMeal}</h1>
           <div className="flex flex-wrap gap-2">
             <Badge variant="secondary" className="text-sm">
               {meal.strCategory}

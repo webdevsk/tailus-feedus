@@ -86,7 +86,9 @@ export default function CartPage() {
       <div className="container py-8 lg:py-16">
         <Card>
           <CardHeader>
-            <CardTitle>Your Cart</CardTitle>
+            <CardTitle className="text-xl font-semibold text-yellow-950">
+              Your Cart
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-6">

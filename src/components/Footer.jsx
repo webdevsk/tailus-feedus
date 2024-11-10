@@ -56,7 +56,7 @@ const Footer = () => {
               <li>123 Restaurant Street</li>
               <li>Foodtown, FT 12345</li>
               <li>Phone: (555) 123-4567</li>
-              <li>Email: info@tastybites.com</li>
+              <li>Email: info@tailusfeedus.com</li>
             </ul>
           </div>
 

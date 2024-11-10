@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { filtersParsers, urlKeys } from "@/lib/filtersCache"
+import { filtersParsers } from "@/lib/filtersCache"
 import { getAllCategories } from "@/server/home"
 import { useQuery } from "@tanstack/react-query"
 import { useQueryStates } from "nuqs"
@@ -114,6 +114,13 @@ export function FiltersComponent() {
           >
             Search
           </Button>
+        </div>
+
+        <div>
+          <div className="inline align-baseline text-sm font-semibold leading-none text-gray-400">
+            &apos;All Products&apos; and &apos;Filter products by multiple
+            criterias are not supported by this free Api&apos;
+          </div>
         </div>
       </div>
     </div>
