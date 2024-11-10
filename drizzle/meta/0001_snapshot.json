@@ -1,6 +1,6 @@
 {
-  "id": "57863691-d6bc-4724-a59a-697b2c2ee33a",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "be08e7e9-f643-42ee-b249-ba73297ce28b",
+  "prevId": "57863691-d6bc-4724-a59a-697b2c2ee33a",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -54,7 +54,7 @@
         },
         "price": {
           "name": "price",
-          "type": "real",
+          "type": "numeric",
           "primaryKey": false,
           "notNull": true
         }

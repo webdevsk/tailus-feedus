@@ -1,5 +1,5 @@
 // schema.ts
-import { serial, text, timestamp, integer, pgTable, unique, varchar } from "drizzle-orm/pg-core"
+import { serial, text, timestamp, integer, pgTable, unique, varchar, numeric } from "drizzle-orm/pg-core"
 
 // Users table
 export const users = pgTable("users", {
@@ -19,14 +19,15 @@ export const cartItems = pgTable("cart_items", {
     userId: text("user_id")
         .notNull()
         .references(() => users.id, { onDelete: "cascade" }),
-    productId: text("product_id").notNull(), // idMeal from your schema
-    productName: text("product_name").notNull(), // strMeal
-    productThumb: text("product_thumb").notNull(), // strMealThumb
-    quantity: integer("quantity").notNull().default(1),
-    createdAt: timestamp("created_at").defaultNow(),
+    idMeal: text("meal_id").notNull(), // idMeal from your schema
+    strMeal: text("meal_name").notNull(), // strMeal
+    strMealThumb: text("meal_thumb").notNull(), // strMealThumb
+    intQuantity: integer("quantity").notNull().default(1),
+    dateCreatedAt: timestamp("created_at").defaultNow(),
+    floatPrice: numeric("price").notNull().$defaultFn(() => (Math.random() * 1000 + 99).toFixed(2))
 }, (table) => {
     return {
         // Ensure unique product per user cart
-        userProductUnique: unique().on(table.userId, table.productId),
+        userProductUnique: unique().on(table.userId, table.idMeal),
     }
 })

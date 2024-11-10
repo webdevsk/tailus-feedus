@@ -1,12 +1,13 @@
 CREATE TABLE IF NOT EXISTS "cart_items" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"user_id" text NOT NULL,
-	"product_id" text NOT NULL,
-	"product_name" text NOT NULL,
-	"product_thumb" text NOT NULL,
+	"meal_id" text NOT NULL,
+	"meal_name" text NOT NULL,
+	"meal_thumb" text NOT NULL,
 	"quantity" integer DEFAULT 1 NOT NULL,
 	"created_at" timestamp DEFAULT now(),
-	CONSTRAINT "cart_items_user_id_product_id_unique" UNIQUE("user_id","product_id")
+	"price" real NOT NULL,
+	CONSTRAINT "cart_items_user_id_meal_id_unique" UNIQUE("user_id","meal_id")
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "users" (

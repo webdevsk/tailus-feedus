@@ -1,7 +1,7 @@
 "use client"
 import { addToCart } from "@/server/cart"
 import { Button } from "./ui/button"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { toast } from "sonner"
 import { useAuth } from "@clerk/nextjs"
 
@@ -12,9 +12,9 @@ export function AddToCart({ idMeal, strMeal, strMealThumb }) {
   async function cartAdd() {
     const addToCartPromise = isSignedIn
       ? addToCart({
-          productId: idMeal,
-          productName: strMeal,
-          productThumb: strMealThumb,
+          idMeal,
+          strMeal,
+          strMealThumb,
         })
       : Promise.resolve({ status: "failed", message: "Not logged in" })
 
@@ -30,7 +30,7 @@ export function AddToCart({ idMeal, strMeal, strMealThumb }) {
   }
 
   return (
-    <Button disabled={disabled} onClick={cartAdd} className="w-full" size="lg">
+    <Button disabled={disabled} onClick={cartAdd} className="w-full">
       Add to Cart
     </Button>
   )

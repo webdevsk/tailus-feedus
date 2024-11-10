@@ -7,7 +7,7 @@ import { auth } from '@clerk/nextjs/server'
 // import { auth } from '@clerk/nextjs'
 
 
-export async function addToCart({ productId, productName, productThumb, quantity = 1 }) {
+export async function addToCart({ idMeal, strMeal, strMealThumb, intQuantity = 1 }) {
     try {
         const { userId: clerkId } = await auth()
         if (!clerkId) throw new Error('Unauthorized')
@@ -25,7 +25,7 @@ export async function addToCart({ productId, productName, productThumb, quantity
         const [existingItem] = await db.select().from(cartItems).where(
             and(
                 eq(cartItems.userId, user.id),
-                eq(cartItems.productId, productId)
+                eq(cartItems.idMeal, idMeal)
             )
         ).limit(1)
 
@@ -33,16 +33,16 @@ export async function addToCart({ productId, productName, productThumb, quantity
             // Update quantity if item exists
             await db
                 .update(cartItems)
-                .set({ quantity: existingItem.quantity + quantity })
+                .set({ intQuantity: existingItem.intQuantity + intQuantity })
                 .where(eq(cartItems.id, existingItem.id))
         } else {
             // Add new item if it doesn't exist
             await db.insert(cartItems).values({
                 userId: user.id,
-                productId,
-                productName,
-                productThumb,
-                quantity,
+                idMeal,
+                strMeal,
+                strMealThumb,
+                intQuantity,
             })
         }
 
@@ -55,7 +55,7 @@ export async function addToCart({ productId, productName, productThumb, quantity
 
 export async function getCart() {
     try {
-        const { userId: clerkId } = auth()
+        const { userId: clerkId } = await auth()
         if (!clerkId) throw new Error('Unauthorized')
 
         const [user] = await db
@@ -79,18 +79,37 @@ export async function getCart() {
     }
 }
 
-export async function removeFromCart(itemId) {
+export async function removeFromCart(id) {
     try {
-        const { userId: clerkId } = auth()
+        const { userId: clerkId } = await auth()
         if (!clerkId) throw new Error('Unauthorized')
 
         await db
             .delete(cartItems)
-            .where(eq(cartItems.id, itemId))
+            .where(eq(cartItems.id, id))
 
         return { status: "success" }
     } catch (error) {
         console.error('Error removing from cart:', error)
         return { status: "error", message: 'Failed to remove item from cart' }
+    }
+}
+
+
+export async function updateCart({ id, intQuantity }) {
+    try {
+        const { userId: clerkId } = await auth()
+        if (!clerkId) throw new Error('Unauthorized')
+
+        // Update quantity
+        await db
+            .update(cartItems)
+            .set({ intQuantity })
+            .where(eq(cartItems.id, id))
+
+        return { status: "success" }
+    } catch (error) {
+        console.error('Error adding to cart:', error)
+        return { status: "error", message: 'Failed to update cart' }
     }
 }
