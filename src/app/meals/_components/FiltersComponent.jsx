@@ -1,5 +1,6 @@
 "use client"
 
+import { SectionHeading } from "@/components/SectionHeading"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
@@ -46,8 +47,12 @@ export function FiltersComponent() {
   }
 
   return (
-    <div className="lg:w-1/4">
+    <div className="lg:w-1/5">
       <div className="space-y-6">
+        <SectionHeading className="text-start lg:text-2xl">
+          All Meals
+        </SectionHeading>
+
         <div>
           <label
             htmlFor="search"
