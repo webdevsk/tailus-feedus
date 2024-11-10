@@ -9,16 +9,21 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import {
+  getLocalCart,
+  removeFromLocalCart,
+  updateLocalCart,
+} from "@/lib/localCart"
 import { getCart, removeFromCart, updateCart } from "@/server/cart"
+import { useAuth } from "@clerk/nextjs"
 import { useQuery } from "@tanstack/react-query"
 import { Minus, Plus, Trash2 } from "lucide-react"
-import { revalidatePath } from "next/cache"
 import Image from "next/image"
-import { useRouter } from "next/navigation"
 import { useMemo } from "react"
 import { toast } from "sonner"
 
 export default function CartPage() {
+  const { isSignedIn } = useAuth()
   const {
     data: res = {},
     isLoading,
@@ -26,7 +31,7 @@ export default function CartPage() {
     refetch,
   } = useQuery({
     queryKey: ["cart"],
-    queryFn: () => getCart(),
+    queryFn: () => (isSignedIn ? getCart() : getLocalCart()),
     refetchOnWindowFocus: false,
   })
 
@@ -34,7 +39,10 @@ export default function CartPage() {
 
   async function cartDelete(id) {
     const toastId = toast.loading("Removing from Cart")
-    const { status, message } = await removeFromCart(id)
+    const removePromise = isSignedIn
+      ? removeFromCart(id)
+      : removeFromLocalCart(id)
+    const { status, message } = await removePromise
     status === "success"
       ? toast.success("Removed successfully", { id: toastId })
       : toast.error(message, { id: toastId })
@@ -51,7 +59,10 @@ export default function CartPage() {
     const intQuantity = item.intQuantity + incrementBy
     if (intQuantity < 1 || intQuantity > 10) return
     const toastId = toast.loading("Updating quantity...")
-    const { status, message } = await updateCart({ id, intQuantity })
+    const updatePromise = isSignedIn
+      ? updateCart({ id, intQuantity })
+      : updateLocalCart({ id, intQuantity })
+    const { status, message } = await updatePromise
     status === "success"
       ? toast.success("Updated quantity successfully", { id: toastId })
       : toast.error(message, { id: toastId })

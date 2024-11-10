@@ -4,19 +4,19 @@ import { Button } from "./ui/button"
 import { useState } from "react"
 import { toast } from "sonner"
 import { useAuth } from "@clerk/nextjs"
+import { addToLocalCart } from "@/lib/localCart"
 
 export function AddToCart({ idMeal, strMeal, strMealThumb }) {
   const [disabled, setDisabled] = useState(false)
   const { isSignedIn } = useAuth()
 
   async function cartAdd() {
-    const addToCartPromise = isSignedIn
-      ? addToCart({
-          idMeal,
-          strMeal,
-          strMealThumb,
-        })
-      : Promise.resolve({ status: "failed", message: "Not logged in" })
+    const data = {
+      idMeal,
+      strMeal,
+      strMealThumb,
+    }
+    const addToCartPromise = isSignedIn ? addToCart(data) : addToLocalCart(data)
 
     setDisabled(true)
     const toastId = toast.loading("Adding to cart...")
