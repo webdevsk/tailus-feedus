@@ -39,3 +39,23 @@
 - Fixed Searchbar functionality
 - Fixed and enhanced Hero banner section responsive design on Mobile
 - Navbar now closes on route change
+
+## Time Estimate:
+
+27 hours (average of 9 hours per day)
+
+#### Additional Research and Implementation Time:
+
+4 hours — initial attempts at implementing local authentication using NextAuth. Due to challenges with the documentation, I opted for Clerk Auth to meet the project deadline and ensure stability and efficiency.
+
+## Clerk webhook diagram
+
+flowchart LR
+A["User Signup\non Clerk"] -->|event| B["Clerk\nWebhook"]
+B -->|trigger| C["/api/webhooks/clerk"]
+C -->|insert| D[(PostgreSQL\nUser Table)]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#dfd,stroke:#333,stroke-width:2px
+    style D fill:#fdd,stroke:#333,stroke-width:2px
