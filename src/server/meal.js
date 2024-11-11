@@ -12,7 +12,7 @@ export async function getMealById(id) {
     }
 }
 
-export async function getMealsByPath(path = "/search.php?f=a") {
+export async function getMealsByPath(path = "/filter.php?a=American") {
 
     try {
         const res = await fetch(base_url + path, { cache: "force-cache" })

@@ -22,6 +22,8 @@ import Image from "next/image"
 import { useMemo } from "react"
 import { toast } from "sonner"
 
+export const dynamic = "force-dynamic"
+
 export default function CartPage() {
   const { isSignedIn } = useAuth()
   const {

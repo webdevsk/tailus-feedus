@@ -4,7 +4,6 @@ import { db } from '@/lib/drizzle'
 import { cartItems, users } from '@/db/schema'
 import { eq, and } from 'drizzle-orm'
 import { auth } from '@clerk/nextjs/server'
-// import { auth } from '@clerk/nextjs'
 
 
 export async function addToCart({ idMeal, strMeal, strMealThumb, intQuantity = 1 }) {
