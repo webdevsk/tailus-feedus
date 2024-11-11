@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Auth } from "./Auth"
 import { Button } from "@/components/ui/button"
 import HolyLoader from "holy-loader"
+import { NavbarInput } from "./NavbarInput"
 
 const Navbar = () => {
   return (
@@ -20,12 +21,7 @@ const Navbar = () => {
       <nav className="fixed left-0 top-0 z-50 flex h-nav-height w-full bg-white md:absolute md:bg-transparent">
         <div className="container">
           <div className="flex flex-wrap items-center justify-between py-3 md:py-4">
-            <input
-              type="checkbox"
-              name="toggle_nav"
-              id="toggle_nav"
-              className="peer hidden"
-            />
+            <NavbarInput />
             <div className="z-30 flex w-full justify-between px-6 md:px-0 lg:w-max">
               <Link
                 href="/"
