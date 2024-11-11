@@ -5,10 +5,15 @@ prettier
 ssr
 Authentication using Clerk
 Next Modal Product
+Localcart
 
 # Bug fixes
 
 Api rate limit
+Fonts not working
+Searchbar
+Hero section
+Navbar close on route
 
 # Recipe App
 

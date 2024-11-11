@@ -68,16 +68,12 @@ const Navbar = () => {
             >
               <div className="w-full text-gray-600 lg:pr-4">
                 <ul className="flex w-full flex-col items-center gap-y-6 text-sm font-medium tracking-wide lg:flex-row lg:gap-y-0">
-                  <li>
-                    <Button variant="link" asChild>
-                      <Link href="/meals">All meals</Link>
-                    </Button>
-                  </li>
-                  <li>
-                    <Button variant="link" asChild>
-                      <Link href="/cart">Cart</Link>
-                    </Button>
-                  </li>
+                  <Button className="max-lg:w-full" variant="link" asChild>
+                    <Link href="/meals">All meals</Link>
+                  </Button>
+                  <Button className="max-lg:w-full" variant="link" asChild>
+                    <Link href="/cart">Cart</Link>
+                  </Button>
                 </ul>
               </div>
               <Auth />
