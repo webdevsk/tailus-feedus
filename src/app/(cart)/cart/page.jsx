@@ -119,32 +119,36 @@ export default function CartPage() {
                       alt={item.strMeal}
                       className="h-24 w-24 rounded-lg object-cover"
                     />
-                    <div className="flex-1">
+                    <div className="w-1 grow">
                       <h3 className="font-medium">{item.strMeal}</h3>
                       <p className="text-sm text-gray-500">
                         BDT{item.floatPrice}
                       </p>
                     </div>
-                    <div className="flex items-center space-x-1 lg:space-x-2">
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        onClick={() => cartUpdate(item.id, -1)}
-                      >
-                        <Minus className="h-4 w-4" />
-                      </Button>
-                      <span className="w-8 text-center">
-                        {item.intQuantity}
-                      </span>
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        onClick={() => cartUpdate(item.id, 1)}
-                      >
-                        <Plus className="h-4 w-4" />
-                      </Button>
+                    <div className="flex shrink-0 flex-col-reverse items-center gap-y-2 md:flex-row lg:space-x-4">
+                      <div className="flex items-center space-x-1 lg:space-x-2">
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          onClick={() => cartUpdate(item.id, -1)}
+                        >
+                          <Minus className="h-4 w-4" />
+                        </Button>
+                        <span className="w-8 text-center">
+                          {item.intQuantity}
+                        </span>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          onClick={() => cartUpdate(item.id, 1)}
+                        >
+                          <Plus className="h-4 w-4" />
+                        </Button>
+                      </div>
+                      <div className="w-24 text-right">
+                        BDT {item.floatPrice}
+                      </div>
                     </div>
-                    <div className="w-24 text-right">{item.floatPrice}</div>
                     <Button
                       variant="ghost"
                       size="icon"
