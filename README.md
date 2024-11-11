@@ -1,51 +1,41 @@
-# New features
+# Tailus Feedus
 
-categories
-prettier
-ssr
-Authentication using Clerk
-Next Modal Product
-Localcart
+## New features
 
-# Bug fixes
+### UI
 
-Api rate limit
-Fonts not working
-Searchbar
-Hero section
-Navbar close on route
+- Full responsive design tested on Smartphone, Laptop and PC
+- New Categories Menu on Home page
+- New Footer
+- Single Meal modal
+- Single Meal page on refresh (See NextJS section)
+- All Meals page
+- Cart page
+- Authentication pages
+- Toast notifications for key events
 
-# Recipe App
+### Authentication
 
-# Description:
+- Email and Password authentication using Clerk for seamless sign up and sign in process while ensuring proper validation.
+- Implemented Clerk Webhooks to insert User information in our own Database for Cart table references.
 
-- You are provided with an incomplete Recipe App project that uses the free MealDB API to retrieve recipe data. The app needs to showcase some recipes and allows users to add them to a cart. Functionalities after carting is not required for the current MVP. The home page includes a banner section, a top recipes section, and a search option to find recipes by name or ingredients.
+### NextJS
 
-# Required New Features:
+- Implementation of SSR (Server side rendering) on Home page, Single product page and All products page ensuring fullpage SEO.
+- Data fetching from NextJS server cache instead of third party api which is prone to rate limiting. Enhancing site speed by fetching populated HTML with data instead of fetching from client.
+- Implementation of NextJS Modal on Single Meal page. Modal opens on click by default. But if you share the Meal link it will open in a separate page.
+- Implementing Filter state using NextJS searchParams. Now you can share your searched Meals page with others.
 
-- Basic Authentication: Implement an authentication flow using name, email, phone, and a password.
-- All Recipes Page: Create a page where users can view all recipes.
-- Add Recipe to Cart: Allow users to add recipes to a cart. The cart should store data locally if the user is not logged in, and save it to the user’s account if they are logged in.
-- Bug Fixes: There are at least three, or more features that are currently not working properly. Identify and fix these bugs.
+### Cart
 
-# Additional Requirements:
+- Cart items saved in localStorage if user is not signed in
+- Cart items saved in Posgresql Database if user is signed in
+- Fully supports Add/Delete/Update functionality and persisting data in localStorage/Database
 
-- Consistent Design Style: Ensure that any new features match the design style of the existing application. Follow basic accessibility standards.
-- Mobile Responsiveness: Make all pages responsive for mobile devices.
+## Bug fixes
 
-# Documentation Requirements:
-
-- After completion, document under the README section.
-- Features Implemented: Describe the new features you added, in both technical and non-technical terms.
-- Bug Fixes: Briefly list the bugs you identified and fixed.
-- Time Estimate: Indicate the total time spent on the assessment.
-
-# N.B. Documentation should be brief and short, no need to go overboard with it.
-
-# Submission Guidelines:
-
-- Clone or ZIP Download the existing GitHub Code repository: https://github.com/khalek-repliq/frontend-assessment
-- Get rid of the .git folder from the project.
-- Make your necessary changes and upload your new project into your personal GitHub account as a public repository
-- Host your final version on Vercel, Netlify, Firebase or similar platform and prepare your live link.
-- You must submit your "GitHub Link" & "Live Link"
+- MealDB Api rate limit fixed by Caching apis in server
+- Fixed Fonts
+- Fixed Searchbar functionality
+- Fixed and enhanced Hero banner section responsive design on Mobile
+- Navbar now closes on route change
