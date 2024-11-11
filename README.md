@@ -50,12 +50,14 @@
 
 ## Clerk webhook diagram
 
-flowchart LR
-A["User Signup\non Clerk"] -->|event| B["Clerk\nWebhook"]
-B -->|trigger| C["/api/webhooks/clerk"]
-C -->|insert| D[(PostgreSQL\nUser Table)]
+```mermaid
+flowchart LR;
+A["User Signup\non Clerk"] -->|event| B["Clerk\nWebhook"];
+B -->|trigger| C["/api/webhooks/clerk"];
+C -->|insert| D[(PostgreSQL\nUser Table)];
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style B fill:#bbf,stroke:#333,stroke-width:2px
     style C fill:#dfd,stroke:#333,stroke-width:2px
     style D fill:#fdd,stroke:#333,stroke-width:2px
+```
